@@ -3,22 +3,7 @@
 @tailwind utilities;
 
 
-.header{
-    @apply w-10/12 m-auto flex justify-between my-[33px] 
-   
-}
-.header .logo{
-    @apply font-bold text-[20px] text-black md:text-[32px]
-   
-}
-.header .menu{
-    @apply my-auto lg:block
-}
-.header .menu ul {
-    @apply flex space-x-3 text-[18px]
-}
 
-/* end header */
 
 .banner{
     @apply w-10/12 m-auto md:flex text-center md:justify-between md:gap-[50px] 
@@ -117,26 +102,3 @@
 }
 
 /* end study */
-
-.footer{
-    @apply bg-[#512E5F]
-}
-.footer .container{
-    @apply w-10/12 m-auto text-white py-[50px] 
-}   
-.footer .container .title{
-    @apply  text-center md:text-left 
-}
-.footer .container .title p{
-    @apply text-[24px] font-bold md:text-[32px]
-}
-.footer .container .row {
-    @apply sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-5 gap-8 text-center sm:text-left
-}
-.footer .container .row .col .col-name{
-    @apply font-bold text-[24px] pb-[30px] pt-[90px] 
-}
-
-.footer .container .row .col ul li {
-    @apply block py-2
-}
