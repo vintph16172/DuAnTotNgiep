@@ -1,0 +1,51 @@
+.signin__form .signin__main__left input{
+    background-color: #512E5F;
+    border-radius: 5px;
+    margin-top: 24px;
+    width: 360px;
+    height: 50px;
+}
+
+input::placeholder{
+    color: white;
+}
+
+.signin__form{
+    position: relative;
+    width: 1196px;
+    height: 700px;
+    left: 122px;
+    top: 100px;
+border-radius: 5px;
+background-color: rgb(251, 245, 245);
+}
+
+.signin__form button{
+    background-color: #512E5F;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.signin__main__left i {
+    font-size: 28px;
+    margin-left: 10px;
+}
+.signin__main__right{
+    position: absolute;
+width: 292px;
+height: 304px;
+left: 905px;
+top: 100px;
+
+}
+.signin__main__left{
+    position: absolute;
+width: 466px;
+height: 705px;
+left: 243px;
+}
+
+@media (min-width: 640px) { }
+@media (min-width: 768px) { }
+@media (min-width: 1024px) { }
+@media (min-width: 1280px) {  }
