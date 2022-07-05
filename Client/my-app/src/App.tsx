@@ -16,6 +16,9 @@ import SignIn from './pages/SignIn';
 import Welcome from './pages/Welcome';
 import Learning from './pages/Learning';
 import DetailLearning from './pages/DetailLearning';
+import Contact from './pages/Contact';
+import FileUser from './pages/FileUser';
+import User from './pages/User';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path='learning' element={<Learning/>} />
           <Route path='detailLearning' element={<DetailLearning/>} />
+          <Route path="contact" element={<Contact />}/>
+          <Route path="fileuser" element={<FileUser />}/>
+          <Route path="user" element={<User />}/>
         </Route>
 
 
