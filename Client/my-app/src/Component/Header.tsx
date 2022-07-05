@@ -6,7 +6,7 @@ const HeaderComponent = () => {
     <header className="header">
       <div className="logo">
         <NavLink to={''}   ><img src="" />VOGUE</NavLink>
-        <div className="fa fa-bars font-normal" />
+        <div className="fas fa-bars my-auto text-[32px] px-8 hidden"  />
       </div>
       {/* <div class="menu hidden">
                             <ul>

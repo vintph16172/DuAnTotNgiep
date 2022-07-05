@@ -6,9 +6,9 @@ import Header from '../../Component/Header'
 const WebsiteLayout = () => {
     return (
         <div >
-            <Header />
+
             <Outlet />
-            <Footer />
+          
         </div>
     )
 }

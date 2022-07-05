@@ -1,5 +1,8 @@
+
 import React from 'react'
 import {  useNavigate } from 'react-router-dom'
+import Footer from '../Component/Footer'
+import HeaderComponent from '../Component/Header'
 import Count from '../features/count/Count'
 import Product from '../features/product/Product'
 
@@ -11,11 +14,12 @@ const Home = () => {
         if (!existUser) {
             navigate('/login')
         }else{
-            navigate('/welcome')
+            navigate('/learning')
         }
     }
     return (
         <div>
+            <HeaderComponent/>
             <div>
                
                 {/* end header */}
@@ -130,7 +134,7 @@ const Home = () => {
                 </section>
                
             </div>
-
+            <Footer/>
         </div>
     )
 }
