@@ -1,10 +1,13 @@
 import React from 'react'
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 type Props = {}
 
 const FileUser = (props: Props) => {
   return (
     <div>
+        <Header/>
         <div className='px-[123px]'>
         <div className="title flex justify-between">
             <h1 className='font-bold text-[32px]'>Ho so</h1>
@@ -25,7 +28,8 @@ const FileUser = (props: Props) => {
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+    <Footer/>
     </div>
   )
 }

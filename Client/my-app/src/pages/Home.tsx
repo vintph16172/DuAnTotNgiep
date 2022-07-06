@@ -2,7 +2,7 @@
 import React from 'react'
 import {  useNavigate } from 'react-router-dom'
 import Footer from '../Component/Footer'
-import HeaderComponent from '../Component/Header'
+import HeaderComponent from '../Component/HeaderHome'
 import Count from '../features/count/Count'
 import Product from '../features/product/Product'
 

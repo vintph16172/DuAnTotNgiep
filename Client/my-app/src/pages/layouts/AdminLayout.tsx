@@ -10,7 +10,7 @@ import { UserOutlined, CommentOutlined, DollarOutlined, LaptopOutlined } from '@
 const AdminLayout = () => {
   return (
     <Layout style={{ width: "100%", height:"100vh" }}>
-    <Header className="header" >
+    <Header className="" >
         <div className="logo" style={{float:"left",  width: "120px",height: "31px"}}>
             <NavLink aria-current="page" className="logo active" to="/"> Logo </NavLink>
         </div>

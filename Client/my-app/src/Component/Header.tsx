@@ -1,26 +1,43 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
-const HeaderComponent = () => {
+const Header = () => {
+  const abc = () => {
+    let navbar = document.querySelector<any>('.nav__learning-menu');
+      
+    navbar.classList.toggle('active');
+   
+    
+    window.onscroll = ():any => {
+        navbar.classList.remove('active');
+    }
+}
   return (
-    <header className="header">
-      <div className="logo">
-        <NavLink to={''}   ><img src="" />VOGUE</NavLink>
-        <div className="fas fa-bars my-auto text-[32px] px-8 hidden"  />
-      </div>
-      {/* <div class="menu hidden">
-                            <ul>
-                                <li><a href="">Menu</a></li>
-                                <li><a href="">Menu</a></li>
-                                <li><a href="">Menu</a></li>
-                                <li><a href="">Menu</a></li>
-                            </ul>
-                        </div>
-                        <div class="user">
-                            <a href="" class="fa fa-user text-2xl my-auto" aria-hidden="true"></a>
-                        </div> */}
-    </header>
+    <div>
+       <header className="header__learning">
+                <div className="header__learning_box">
+
+                    <div className="logo">
+                        <a ><img src="" />Logo</a>
+                        <div className="fas fa-bars" id="menu-btn" onClick={() => abc()} />
+                    </div>
+
+                    <div className="nav__learning-menu">
+                        <ul className="nav__learning">
+                            <li><a >Học </a></li>
+                            <li><a >Bài hát</a></li>
+                            <li><a >Cửa hàng</a></li>
+                        </ul>
+                    </div>
+
+                    <nav className="nav__user">
+                        <a ><i className="fa-solid fa-bolt" /> 0 </a>
+                        <a ><i className="fa-solid fa-crown" /> 0</a>
+                        <a ><i className="fa-solid fa-user nav__icon__user" /></a>
+                    </nav>
+                </div>
+            </header>
+    </div>
   )
 }
 
-export default HeaderComponent
+export default Header

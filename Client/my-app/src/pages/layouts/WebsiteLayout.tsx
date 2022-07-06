@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../../Component/Footer'
-import Header from '../../Component/Header'
+import Header from '../../Component/HeaderHome'
 
 const WebsiteLayout = () => {
     return (

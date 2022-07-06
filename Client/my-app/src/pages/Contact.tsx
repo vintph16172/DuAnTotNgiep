@@ -1,10 +1,13 @@
 import React from 'react'
+import Footer from '../Component/Footer'
+import Header from '../Component/Header'
 
 type Props = {}
 
 const Contact = (props: Props) => {
   return (
     <div>
+        <Header/>
          <div className='py-[102px] px-[244px]'>
         <h1 className='font-normal text-[36px]'>Lien he voi chung toi</h1>
         <div className="email">
@@ -101,7 +104,8 @@ const Contact = (props: Props) => {
                 <button className='py-2 px-[40px] bg-[#4A235A] w-[337px] h-[64px] text-white font-bold border rounded-[10px]'>Gui phan hoi</button>
             </div>
         </form>
-    </div>
+        </div>
+        <Footer/>
     </div>
   )
 }
