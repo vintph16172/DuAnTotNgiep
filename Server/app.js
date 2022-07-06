@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import cors from 'cors'
 import morgan from 'morgan'
 import homeRouter from './routes/home';
+import { checkAuth } from './midlerware/checkAuth';
+import routeCategory from './routes/category';
 
 const app = express();
 const path = require("path");
@@ -15,7 +17,7 @@ require('dotenv').config()
 
 
 app.use("/", homeRouter )
-
+app.use("/api",checkAuth, routeCategory);
 
 mongoose
   .connect(process.env.MONGO_URI)
