@@ -3,7 +3,7 @@
     background-color: #512E5F;
     border-radius: 5px;
     margin-top: 24px;
-    width: 360px;
+    width: 478px;
     height: 50px;
 }
 
@@ -12,13 +12,10 @@ input::placeholder{
 }
 
 .signin__form{
-    position: relative;
-    width: 1196px;
-    height: 700px;
-    left: 122px;
-    top: 100px;
-border-radius: 5px;
-background-color: rgb(251, 245, 245);
+    background-color: #FCFCFC;
+    border-radius: 5px;
+    width: 1200px;
+    height: 600px;
 }
 
 .signin__form button{
@@ -31,22 +28,10 @@ background-color: rgb(251, 245, 245);
     font-size: 28px;
     margin-left: 10px;
 }
-.signin__main__right{
-    position: absolute;
-width: 292px;
-height: 304px;
-left: 200px;
-top: 220px;
-}
-.signin__main__left{
-    position: absolute;
-width: 466px;
-height: 705px;
-left: 600px;
-top: 100px;
 
+.signin__main__right .signin__main__right__text{
+    padding: 10px 150px 10px 150px;
 }
-
 @media (min-width: 640px) { }
 @media (min-width: 768px) { }
 @media (min-width: 1024px) { }

@@ -5,6 +5,8 @@ import  './css/header.css';
 import  './css/welcome.css'; 
 import  './css/learning.css'; 
 import  './css/detailLearning.css'; 
+import  './css/signin.css'; 
+import  './css/signup.css'; 
 
 // import './App.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
