@@ -5,7 +5,7 @@ type Props = {}
 const BannerUser = (props: Props) => {
   return (
     <div>
-        <div className="pt-3">
+        <div className="pt-3  ">
       <div className="border-b-2">
           <div className="flex justify-between pb-[120px] items-center">
               <div className="info flex items-center">
