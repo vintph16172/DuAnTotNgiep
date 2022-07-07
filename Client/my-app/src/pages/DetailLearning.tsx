@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../Component/Footer';
+import { Button, Modal } from 'antd';
 
 const DetailLearning = () => {
     const abc = () => {
         let navbar = document.querySelector<any>('.nav__learning-menu');
-          
+
         navbar.classList.toggle('active');
-       
-        
-        window.onscroll = ():any => {
+
+
+        window.onscroll = (): any => {
             navbar.classList.remove('active');
         }
     }
-   
-   
+    const [visibleSpeak, setVisibleSpeak] = useState(false);
+
 
 
     return (
@@ -63,6 +64,29 @@ const DetailLearning = () => {
                     <div className="item__detail__learning">
                         <img src="./../image/phat am.PNG" />
                         <h4>Phát âm</h4>
+                        <Button type="primary" onClick={() => setVisibleSpeak(true)}>
+                            Open Modal of 1000px width
+                        </Button>
+                        <Modal
+                            title="Gia Đình"
+                            centered
+                            visible={visibleSpeak}
+                            onOk={() => setVisibleSpeak(false)}
+                            onCancel={() => setVisibleSpeak(false)}
+                            width={1000}
+                        >
+                            <div className="">
+                                <div className="">
+                                    <img src="./" alt="" />
+                                </div>
+                                <div className="">
+                                    a
+                                </div>
+                            </div>
+                            <p>some contents...</p>
+                            <p>some contents...</p>
+                            <p>some contents...</p>
+                        </Modal>
                     </div>
                     <div className="item__detail__learning">
                         <img src="./../image/nghe viet.PNG" />
