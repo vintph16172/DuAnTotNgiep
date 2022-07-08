@@ -7,13 +7,14 @@ import  './css/learning.css';
 import  './css/detailLearning.css'; 
 import  './css/signin.css'; 
 import  './css/signup.css'; 
+import "toastr/build/toastr.min.css";
 
 // import './App.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import WebsiteLayout from './pages/layouts/WebsiteLayout';
 import Home from './pages/Home';
 import AdminLayout from './pages/layouts/AdminLayout';
-import List from './pages/products/List';
+// import List from './Admin/categories/List';
 import Welcome from './pages/Welcome';
 import Learning from './pages/Learning';
 import DetailLearning from './pages/DetailLearning';
@@ -27,7 +28,12 @@ import ExeQuiz from './pages/ExeQuiz';
 import ExeSpeak from './pages/ExeSpeak';
 import ExeWriteAndListen from './pages/ExeWriteAndListen';
 import Login from './Component/user/Login';
-
+// import Add from './Admin/categories/Add';
+import toastr from "toastr";
+import Add from './features/Admin/categories/Add';
+import Edit from './features/Admin/categories/Edit';
+import List from './features/Admin/categories/List';
+// import Edit from './Admin/categories/Edit';
 function App() {
   return (
     <div >
@@ -46,9 +52,11 @@ function App() {
 
 
         <Route path='admin' element={<AdminLayout />}>
-          <Route index element={<Navigate to="product" />} />
-          <Route path="product" >
+          <Route index element={<Navigate to="category" />} />
+          <Route path="category" >
             <Route index element={<List />} />
+            <Route path='add' element={<Add />} />
+            <Route path='edit/:id' element={<Edit />} />
           </Route>
         </Route>
 
