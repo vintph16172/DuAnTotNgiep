@@ -10,6 +10,7 @@ const Login = (props: Props) => {
         <div className="signin__main__left  w-full ">
           <div className="text-center ml-24">
 
+
             <h1 className="text-3xl font-bold">Signin To Website </h1>
             <div className="signin__main__right__login__google text-center my-6">
               <i className="fa-brands fa-facebook" />
@@ -17,6 +18,7 @@ const Login = (props: Props) => {
               <i className="fa-solid fa-g" />
             </div>
             <p className="text-center">or user email acount</p>
+
 
             <form >
               <div className="m">
