@@ -25,6 +25,8 @@ const ExeSpeak = () => {
     const [value, setValue] = useState('Table');
     const [check, setCheck] = useState(false);
     const [result, setResult] = useState("");
+    const audioCorrect = new Audio("../audio/Quiz-correct-sound-with-applause.mp3")
+    const audioWrong = new Audio("../audio/Fail-sound-effect-2.mp3")
 
     // transcript.charAt(0).toUpperCase() + transcript.slice(1).toLowerCase()
 
@@ -188,7 +190,7 @@ const ExeSpeak = () => {
                             <div>
                                 <p className="text-lg md:px-[8px] md:py-[30px]">Nhấn để nói</p>
                                 <p>{transcript}</p>
-                                <div>
+                                {/* <div>
                                     <button ref={recordBtn} onClick={hanldeOnClick}>
                                         Record
                                     </button>
@@ -197,10 +199,16 @@ const ExeSpeak = () => {
                                     <a id="download" ref={downLoad}>
                                         download
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                             <div>
-                                <button onClick={() => { setCheck(true) }} className="px-[30px] py-[15px] font-bold shadow-lg border-2 border-[#CCCCCC] rounded-xl">Kiểm tra</button>
+                            
+                                <button className="px-[30px] py-[15px] font-bold shadow-lg border-2 border-[#CCCCCC] rounded-xl" onClick={() => { 
+                                    setCheck(true) 
+                                    transcript === value.toUpperCase() ? audioCorrect.play() : audioWrong.play()
+                                }}>
+                                    Kiểm tra
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -217,7 +225,7 @@ const ExeSpeak = () => {
                     {check === true && transcript !== value.toUpperCase() ?
                         <div className="md:w-6/12 w-10/12 mx-auto py-[10px] md:float-right">
                             <div className="bg-[#FFDFE0] px-[15px] md:py-[10px] rounded-md">
-                            <p className="font-bold">{transcript} x {value.toUpperCase()} </p>
+
                                 <p className="font-bold">Gần đúng rồi !</p>
                                 <p className=" md:py-[10px] font-bold">Dịch nghĩa: <span>Mua</span></p>
                                 <button className="text-white w-full py-[10px] rounded-md bg-[#C0392B] mb-[20px] font-bold">Tiếp tục</button>
