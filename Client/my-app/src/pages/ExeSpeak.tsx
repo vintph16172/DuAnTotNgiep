@@ -155,13 +155,13 @@ const ExeSpeak = () => {
         <div>
             <div>
                 <section className="w-10/12 mx-auto">
-                    <div className="mt-[59px]">
+                    <div className="mt-[20px]">
                         <a ><img className="w-[50px]" src="../image/image 27.png" /></a>
                     </div>
                 </section>
-                <section className="w-10/12 mx-auto py-[100px]">
+                <section className="w-10/12 mx-auto py-[50px]">
                     <div className="grid md:grid-cols-3 justify-items-center">
-                        <div>
+                        <div className="w-[300px]"> 
                             <img src="../image/image 24.png" />
                         </div>
                         <div className="col-span-2">
@@ -186,7 +186,7 @@ const ExeSpeak = () => {
                                 </button>
                             </div>
                             <div>
-                                <p className="text-lg md:px-[8px] md:py-[30px]">Nhấn để nói</p>
+                                <p className="text-lg md:px-[8px] md:py-[20px]">Nhấn để nói</p>
                                 <p>{transcript}</p>
                                 <div>
                                     <button ref={recordBtn} onClick={hanldeOnClick}>
