@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { useSpeechSynthesis } from 'react-speech-kit';
 
+
 const ExeQuiz = () => {
     const [value, setValue] = useState(['Dog',"You"]);
     const [select, setSelect] = useState<number>()
@@ -11,6 +12,8 @@ const ExeQuiz = () => {
     const [check2, setCheck2] = useState(false)
     const [check3, setCheck3] = useState(false)
     const [input,setInput] = useState("")
+    const audioCorrect = new Audio("../audio/Quiz-correct-sound-with-applause.mp3")
+    const audioWrong = new Audio("../audio/Fail-sound-effect-2.mp3")
     const { cancel, speak, speaking, supported, voices, pause, resume } = useSpeechSynthesis();
 
     const quizs = [
@@ -93,10 +96,16 @@ const ExeQuiz = () => {
 
                                 console.log(select);
                             }} >
-                                <div className={item.id == select ? "py-[10px] border-2 border-[#130ff8] text-center rounded-md shadow-xl relative cursor-pointer hover:bg-gray-100 transition duration-700" : "py-[10px] border-2 border-[#CCCCCC] text-center rounded-md shadow-xl relative cursor-pointer hover:bg-gray-100 transition duration-700"}>
+                                {/* <div className={item.id == select ? "py-[10px] border-2 border-[#130ff8] text-center rounded-md shadow-xl relative cursor-pointer hover:bg-gray-100 transition duration-700" : "py-[10px] border-2 border-[#CCCCCC] text-center rounded-md shadow-xl relative cursor-pointer hover:bg-gray-100 transition duration-700"}>
                                     <p className="font-bold text-xl my-auto">{item.answer}</p>
                                     <div className="px-[10px] py-[2px] border-2 border-[#CCCCCC] text-center rounded-2xl absolute bottom-[5px] left-[15px]">
                                         <span className="font-bold text-xl">{index + 1}{item.id}</span>
+                                    </div>
+                                </div> */}
+                                <div className={`py-[10px] border-2 ${item.id == select ? "border-[#512E5F]" : "border-[#CCCCCC]" } ${check === true ? item.id == select ? select === quizs[0].correctAnswer? "bg-[#76D7C4] border-[#CCCCCC] " : "bg-[#FFDFE0] border-[#CCCCCC]" :"" :""} text-center rounded-md shadow-xl relative cursor-pointer hover:bg-gray-100 transition duration-700`}>
+                                    <p className="font-bold text-xl my-auto">{item.answer}</p>
+                                    <div className="px-[10px] py-[2px] border-2 border-[#CCCCCC] text-center rounded-2xl absolute bottom-[5px] left-[15px]">
+                                        <span className="font-bold text-xl">{index + 1}</span>
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +115,10 @@ const ExeQuiz = () => {
 
                     </div>
                     <div>
-                        <button onClick={() => { setCheck(true) }} className="border-2 border-[#CCCCCC] px-[30px] py-[15px] font-bold text-lg rounded-md float-right cursor-pointer hover:bg-gray-100 transition duration-700">
+                        <button className={`${check === true ? select === quizs[0].correctAnswer ? "bg-[#138D75] text-white " : "bg-[#C0392B] text-white" :"hover:bg-gray-100 "}  border-2 border-[#CCCCCC] px-[30px] py-[15px] font-bold text-lg rounded-md float-right cursor-pointer transition duration-700`} onClick={() => { 
+                            setCheck(true) 
+                            select === quizs[0].correctAnswer ? audioCorrect.play() : audioWrong.play()
+                        }}>
                             Kiểm tra
                         </button>
                     </div>
@@ -222,7 +234,7 @@ const ExeQuiz = () => {
                         <h1 className="font-bold text-[32px]">Đâu là Cơm ?</h1>
                         <div className="grid grid-cols-2 md:grid-cols-4 md:gap-12 gap-4 text-center justify-items-between py-[50px]">
                             {questions2?.map((item, index) => {
-                                return <div key={index + 1} className={index + 1 === select2 ? "shadow-lg border-2 border-[#130ff8] mx-auto py-[20px] cursor-pointer hover:bg-gray-100 rounded-xl " : "shadow-lg mx-auto py-[20px] cursor-pointer hover:bg-gray-100 rounded-xl "}
+                                return <div key={index + 1} className={`${select2 == item.id ? "border-2 border-[#512E5F]" :""} ${check2 === true ? item.id == select2 ? select2 === quizs[1].correctAnswer? "bg-[#76D7C4]" : "bg-[#FFDFE0]" :"" :""}  shadow-lg  mx-auto py-[20px] cursor-pointer hover:bg-gray-100 rounded-xl `}
                                     onClick={() => {
                                         setSelect2(item.id)
                                         setCheck2(false)
@@ -240,8 +252,9 @@ const ExeQuiz = () => {
 
                         </div>
                         <div className="my-[50px]">
-                            <button className="border-2 border-[#CCCCCC] px-[30px] py-[15px] font-bold text-lg rounded-md float-right shadow-xl" onClick={() => {
+                            <button className={`${check2 === true ? select2 === quizs[1].correctAnswer ? "bg-[#138D75] text-white " : "bg-[#C0392B] text-white" :" hover:bg-gray-100"} border-2 border-[#CCCCCC] px-[30px] py-[15px] font-bold text-lg rounded-md float-right shadow-xl  transition duration-700`} onClick={() => {
                                 setCheck2(true)
+                                select2 === quizs[1].correctAnswer ? audioCorrect.play() : audioWrong.play()
                             }}>
                                 Kiểm tra
                             </button>
@@ -293,8 +306,9 @@ const ExeQuiz = () => {
                             </div>
                         </div>
                         <div className="my-[50px]">
-                            <button className="border-2 border-[#CCCCCC] px-[30px] py-[15px] font-bold text-lg rounded-md float-right shadow-xl" onClick={()=>{
+                            <button className={`${check3 === true ? input === questions3.filter(item=> item.id === quizs[2].correctAnswer )[0].answer.toLowerCase() ? "bg-[#138D75] text-white " : "bg-[#C0392B] text-white" :" hover:bg-gray-100"} border-2 border-[#CCCCCC] px-[30px] py-[15px] font-bold text-lg rounded-md float-right shadow-xl transition duration-700`} onClick={()=>{
                                 setCheck3(true)
+                                input === questions3.filter(item=> item.id === quizs[2].correctAnswer )[0].answer.toLowerCase() ? audioCorrect.play() : audioWrong.play()
                             }} >
                                 Kiểm tra
                             </button>
