@@ -66,12 +66,12 @@ const ExeQuiz = () => {
         <div>
             <div>
                 <section className="w-10/12 mx-auto">
-                    <div className="md:mt-[30px] mt-[20px]">
+                    <div className="md:mt-[20px] mt-[20px]">
                         <a ><img className="w-[30px] md:w-[50px]" src="../image/image 27.png" /></a>
                     </div>
                 </section>
                 <section className="w-10/12 mx-auto">
-                    <div className="md:mt-[50px]">
+                    <div className="md:mt-[30px]">
                         <h1 className="font-bold text-[20px]">Nghe và chọn đáp án đúng</h1>
                         <div className="flex relative">
                             <div className="w-[160px] md:w-[200px] ">
@@ -85,10 +85,10 @@ const ExeQuiz = () => {
                         </div>
                     </div>
                 </section>
-                <section className="md:w-5/12 w-9/12 mx-auto md:py-[30px] ">
+                <section className="md:w-5/12 w-9/12 mx-auto md:py-[20px] ">
                     <div className="items-center">
                         {questions?.map((item, index) => {
-                            return <div key={index + 1} className="my-[58px]" onClick={() => {
+                            return <div key={index + 1} className="my-[30px]" onClick={() => {
 
                                 setSelect(item.id)
                                 setCheck(false)
