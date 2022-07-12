@@ -4,8 +4,23 @@ import cors from 'cors'
 import morgan from 'morgan'
 import homeRouter from './routes/home';
 import { checkAuth } from './midlerware/checkAuth';
-import routeCategory from './routes/category';
 import routeAuth from './routes/auth';
+import routeCategory from './routes/category';
+
+import routerSpeak from './routes/speak';
+import routerQuiz from './routes/quiz';
+import routerListenWrite from './routes/listenWrite'; 
+//----------------QUESTION------------------------ 
+
+import routerAnswerSpeak from './routes/answerSpeak';
+import routerAnswerQuiz from './routes/answerQuiz';
+import routerAnswerListenWrite from './routes/answerListenWrite';
+//----------------ANSWER------------------------ 
+
+import routerUserSpeak from './routes/userSpeak';
+import routerUserQuiz from './routes/userQuiz';
+import routerUserListenWrite from './routes/userListenWrite';
+//-----------------USER-ANSWER------------------------ 
 
 const app = express();
 const path = require("path");
@@ -16,11 +31,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 require('dotenv').config()
 
-
+app.use("/api",checkAuth, routeAuth);
 app.use("/", homeRouter )
 app.use("/api",checkAuth, routeCategory);
-app.use("/api",checkAuth, routeAuth);
 
+app.use("/api", routerSpeak )
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected"))
