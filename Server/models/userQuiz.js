@@ -1,27 +1,28 @@
 import mongoose from "mongoose";
 const { ObjectId } = mongoose
 
-const userSpeakSchema = new mongoose.Schema({
-    speak:{
+const userQuizSchema = new mongoose.Schema({
+    quiz:{
         type: ObjectId,
-        ref: "Speak"
+        ref: "Quiz"
     },
     history:{
         type: ObjectId,
         ref: "History"
     },
-    answerSpeak:{
+    answerQuiz:{
         type: ObjectId,
-        ref: "AnswerSpeak"
+        ref: "AnswerQuiz"
+    },
+    time:{
+        type: String,
+        required: true
     },
     score:{
         type: Number,
         required: true
     },
-    audio:{
-        type: String,
-        required: true
-    }
+
 },{timestamps:true})
 
-export default mongoose.model("UserSpeak",userSpeakSchema)
+export default mongoose.model("UserQuiz",userQuizSchema)

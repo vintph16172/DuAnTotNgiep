@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 const { ObjectId } = mongoose
 
 const answerListenWriteSchema = new mongoose.Schema({
-    speak:{
+    listenWrite:{
         type: ObjectId,
-        ref: "Speak"
+        ref: "ListenWrite"
     },
     content:{
         type: String,
