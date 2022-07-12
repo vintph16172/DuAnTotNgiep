@@ -27,6 +27,10 @@ import ExeQuiz from './pages/ExeQuiz';
 import ExeSpeak from './pages/ExeSpeak';
 import ExeWriteAndListen from './pages/ExeWriteAndListen';
 import Login from './Component/user/Login';
+import ListQuiz from './pages/admin/quiz/ListQuiz';
+import FormQuiz from './pages/admin/quiz/FormQuiz';
+import AdminDashboard from './pages/admin/AdminDashboard';
+
 
 function App() {
   return (
@@ -47,9 +51,16 @@ function App() {
 
 
         <Route path='admin' element={<AdminLayout />}>
-          <Route index element={<Navigate to="product" />} />
+          <Route index element={<Navigate to="dashboard" />} />
+          <Route path='dashboard' element={<AdminDashboard /> } />
+
           <Route path="product" >
             <Route index element={<List />} />
+          </Route>
+          <Route path="quiz" >
+            <Route index element={<ListQuiz />} />
+            <Route path='add' element={<FormQuiz /> } />
+            <Route path=':id/edit' element={<FormQuiz /> } />
           </Route>
         </Route>
 
