@@ -24,6 +24,22 @@ const DetailLearning = () => {
                     </div>
                 </div>
             </section>
+            <section className='box__video__topic'>
+                <h2 className='title__video__topic'>
+                Phần 1.1
+                </h2>
+                <p >
+                    video
+                </p>
+                <div className="video__leaning">
+                <iframe width="100%" height="720" src="https://www.youtube.com/embed/NBS7OlWbgS4" title="Luyện nghe tiếng Anh thụ động-IELTS|I'm Mary"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                </div>
+
+                <div className="box__btn__video">
+                    <button className='btn__previous'><i className="fa-solid fa-angle-left"></i>Previous</button>
+                    <button className='btn__next'>Next <i className="fa-solid fa-angle-right"></i></button>
+                </div>
+            </section>
             <section className="box__review">
                 <h2 className="title__review">Chọn cách luyện tập</h2>
                 <div className="list__detail__learning">

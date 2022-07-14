@@ -4,6 +4,8 @@ import cors from 'cors'
 import morgan from 'morgan'
 import homeRouter from './routes/home';
 import { checkAuth } from './midlerware/checkAuth';
+
+
 import routeAuth from './routes/auth';
 import routeCategory from './routes/category';
 
@@ -22,6 +24,7 @@ import routerUserQuiz from './routes/userQuiz';
 import routerUserListenWrite from './routes/userListenWrite';
 //-----------------USER-ANSWER------------------------ 
 
+
 const app = express();
 const path = require("path");
 
@@ -34,6 +37,10 @@ require('dotenv').config()
 app.use("/api",checkAuth, routeAuth);
 app.use("/", homeRouter )
 app.use("/api",checkAuth, routeCategory);
+
+app.use("/api", routerSpeak )
+
+
 
 app.use("/api", routerSpeak )
 mongoose

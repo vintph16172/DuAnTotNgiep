@@ -7,6 +7,7 @@ import  './css/learning.css';
 import  './css/detailLearning.css'; 
 import  './css/signin.css'; 
 import  './css/signup.css'; 
+import './css/quiz.css';
 import "toastr/build/toastr.min.css";
 
 // import './App.css';
@@ -33,6 +34,8 @@ import toastr from "toastr";
 import Add from './features/Admin/categories/Add';
 import Edit from './features/Admin/categories/Edit';
 import List from './features/Admin/categories/List';
+import ListUser from './features/Admin/Auth/listUser';
+import AddUser from './features/Admin/Auth/AddUser';
 // import Edit from './Admin/categories/Edit';
 function App() {
   return (
@@ -59,6 +62,13 @@ function App() {
             <Route path='add' element={<Add />} />
             <Route path='edit/:id' element={<Edit />} />
           </Route>
+          
+          <Route path="user" >
+            <Route index element={<ListUser />} />
+            <Route path='add' element={<AddUser />} />
+            <Route path='edit/:id' element={<Edit />} />
+          </Route>
+
         </Route>
 
         <Route path='/login' element={<Login />}> </Route>
