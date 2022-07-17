@@ -1,4 +1,4 @@
-import { Button, Space, Table } from 'antd'
+import { Button, Modal, Space, Table } from 'antd'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
@@ -11,6 +11,16 @@ const List = () => {
     const dispath = useDispatch();
     console.log(category);
     
+    const onRemoveCate = (id:any) => {
+        Modal.confirm({
+            title:"You want to delete this category ?",
+            onOk:() => {
+                dispath(removeCate(id))
+            }
+            
+        })
+        
+    }
     useEffect( () => {
         dispath(getCategoryList())
     }, []);
@@ -31,7 +41,7 @@ const List = () => {
                     {/* <a href='edit/:id' >Edit</a> */}
                     <NavLink type="primary" to={'/admin/category/edit/' + recore.id}><Button type="primary" >Edit</Button></NavLink>
                     {/* <button onClick={ () => onRemove(id)}>Remove</button> */}
-                    <Button type="primary" danger onClick={() => dispath(removeCate(recore.id))} >Delete</Button>
+                    <Button type="primary" danger onClick={() => onRemoveCate(recore.id)} >Delete</Button>
                 </Space>
             )
         }

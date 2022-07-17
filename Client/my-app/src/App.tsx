@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './css/home.css';
 import './css/footer.css';
 import './css/header.css';
@@ -7,6 +8,8 @@ import './css/learning.css';
 import './css/detailLearning.css';
 import './css/signin.css';
 import './css/signup.css';
+import './css/quiz.css';
+
 import "toastr/build/toastr.min.css";
 
 // import './App.css';
@@ -34,10 +37,14 @@ import FormQuiz from './pages/admin/quiz/FormQuiz';
 
 // import Add from './Admin/categories/Add';
 import toastr from "toastr";
+
 import Add from './pages/admin/categories/Add';
 import Edit from './pages/admin/categories/Edit';
 import List from './pages/admin/categories/List';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import ListUser from './features/Admin/Auth/listUser';
+import AddUser from './features/Admin/Auth/AddUser';
+
 // import Edit from './Admin/categories/Edit';
 function App() {
   return (
@@ -66,6 +73,13 @@ function App() {
             <Route path='add' element={<Add />} />
             <Route path='edit/:id' element={<Edit />} />
           </Route>
+
+          <Route path="user" >
+            <Route index element={<ListUser />} />
+            <Route path='add' element={<AddUser />} />
+            <Route path='edit/:id' element={<Edit />} />
+          </Route>
+
 
           <Route path="quiz" >
             <Route index element={<ListQuiz />} />

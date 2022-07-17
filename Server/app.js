@@ -4,6 +4,8 @@ import cors from 'cors'
 import morgan from 'morgan'
 import homeRouter from './routes/home';
 import { checkAuth } from './midlerware/checkAuth';
+
+
 import routeAuth from './routes/auth';
 import routeCategory from './routes/category';
 
@@ -21,6 +23,7 @@ import routerUserSpeak from './routes/userSpeak';
 import routerUserQuiz from './routes/userQuiz';
 import routerUserListenWrite from './routes/userListenWrite';
 //-----------------USER-ANSWER------------------------ 
+
 
 const app = express();
 const path = require("path");
@@ -46,7 +49,6 @@ app.use("/api", routerAnswerListenWrite)
 app.use("/api", routerUserSpeak)
 app.use("/api", routerUserQuiz)
 app.use("/api", routerUserListenWrite)
-
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected"))

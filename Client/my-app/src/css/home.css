@@ -19,13 +19,48 @@
 }
 
 
+
 .banner .start .btn-start-1{
-    @apply bg-[#4A235A] text-white text-[16px] py-3 w-[190px]  block mx-auto mt-[62px] rounded-lg lg:w-[240px] lg:text-[18px]
-}   
+    @apply   text-[16px] py-3 w-[190px]  block mx-auto mt-[62px]  lg:w-[240px] lg:text-[18px]
+} 
+
+
+.btn__start__learning{
+    width: 240px;
+    height: 52px;
+    border: 3px solid #4A235A;
+    color: #000;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 #4A235A;
+    transition: ease-out 0.3s;
+    outline: none;
+}
+.btn__start__learning:hover{
+    box-shadow: inset 240px 0 0 0 #4A235A;
+    cursor: pointer;
+    color: #fff;
+}
 
 .banner .start .btn-start-2{
-    @apply bg-[#8E44AD] text-white text-[16px] py-3 w-[190px]  block mx-auto mt-[33px] rounded-lg lg:w-[240px] lg:text-[18px]
+    @apply  text-[16px] py-3 w-[190px]  block mx-auto mt-[33px] lg:w-[240px] lg:text-[18px]
 }
+
+.btn__join__learning{
+    width: 240px;
+    height: 52px;
+    border: 3px solid #8E44AD;
+    color: #000;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 #8E44AD;
+    transition: ease-out 0.3s;
+    outline: none;
+}
+.btn__join__learning:hover{
+    box-shadow: inset 240px 0 0 0 #8E44AD;
+    cursor: pointer;
+    color: #fff;
+}
+
 
 /* end banner */
 
