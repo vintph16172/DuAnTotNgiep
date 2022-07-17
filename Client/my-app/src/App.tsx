@@ -1,12 +1,12 @@
 import React from 'react';
-import  './css/home.css'; 
-import  './css/footer.css'; 
-import  './css/header.css'; 
-import  './css/welcome.css'; 
-import  './css/learning.css'; 
-import  './css/detailLearning.css'; 
-import  './css/signin.css'; 
-import  './css/signup.css'; 
+import './css/home.css';
+import './css/footer.css';
+import './css/header.css';
+import './css/welcome.css';
+import './css/learning.css';
+import './css/detailLearning.css';
+import './css/signin.css';
+import './css/signup.css';
 import "toastr/build/toastr.min.css";
 
 // import './App.css';
@@ -30,51 +30,51 @@ import ExeWriteAndListen from './pages/ExeWriteAndListen';
 import Login from './Component/user/Login';
 import ListQuiz from './pages/admin/quiz/ListQuiz';
 import FormQuiz from './pages/admin/quiz/FormQuiz';
-import AdminDashboard from './pages/admin/AdminDashboard';
+
 
 // import Add from './Admin/categories/Add';
 import toastr from "toastr";
-import Add from './features/Admin/categories/Add';
-import Edit from './features/Admin/categories/Edit';
-import List from './features/Admin/categories/List';
+import Add from './pages/admin/categories/Add';
+import Edit from './pages/admin/categories/Edit';
+import List from './pages/admin/categories/List';
+import AdminDashboard from './pages/admin/AdminDashboard';
 // import Edit from './Admin/categories/Edit';
 function App() {
   return (
     <div >
       <Routes>
-        
+
         <Route path='/' element={<WebsiteLayout />}>
           <Route index element={<Home />} />
-          <Route path='learning' element={<Learning/>} />
-          <Route path='detailLearning' element={<DetailLearning/>} />
-          <Route path='detailLearning/quiz' element={<ExeQuiz/>}/>
-          <Route path='detailLearning/speak' element={<ExeSpeak/>}/>
-          <Route path='detailLearning/writeAndListen' element={<ExeWriteAndListen/>}/>
-          <Route path="contact" element={<Contact />}/>
-          <Route path="fileuser" element={<FileUser />}/>
-          <Route path="user" element={<User />}/>
+          <Route path='learning' element={<Learning />} />
+          <Route path='detailLearning' element={<DetailLearning />} />
+          <Route path='detailLearning/quiz' element={<ExeQuiz />} />
+          <Route path='detailLearning/speak' element={<ExeSpeak />} />
+          <Route path='detailLearning/writeAndListen' element={<ExeWriteAndListen />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="fileuser" element={<FileUser />} />
+          <Route path="user" element={<User />} />
         </Route>
 
 
         <Route path='admin' element={<AdminLayout />}>
-        <Route index element={<Navigate to="dashboard" />} />
-          <Route path='dashboard' element={<AdminDashboard /> } />
+          <Route index element={<Navigate to="dashboard" />} />
+          <Route path='dashboard' element={<AdminDashboard />} />
 
-          <Route path="product" >
-
-           <Route index element={<Navigate to="category" />} />
           <Route path="category" >
             <Route index element={<List />} />
             <Route path='add' element={<Add />} />
             <Route path='edit/:id' element={<Edit />} />
           </Route>
+
           <Route path="quiz" >
             <Route index element={<ListQuiz />} />
-            <Route path='add' element={<FormQuiz /> } />
-            <Route path=':id/edit' element={<FormQuiz /> } />
+            <Route path='add' element={<FormQuiz />} />
+            <Route path=':id/edit' element={<FormQuiz />} />
           </Route>
-        </Route>
 
+
+        </Route>
         <Route path='/login' element={<Login />}> </Route>
         <Route path='/register' element={<SignUp />}></Route>
         <Route path='/welcome' element={<Welcome />}></Route>

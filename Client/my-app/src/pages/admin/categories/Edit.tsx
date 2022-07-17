@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import toas from 'toastr';
 import { changeImage, uploadImage } from '../../../utils/upload';
-import { editdCategorySlide, getCateById, getCategoryList } from '../../Slide/category/CategorySlide';
+import { editdCategorySlide, getCateById, getCategoryList } from '../../../features/Slide/category/CategorySlide';
 
 const layout = {
     labelCol: { span: 2 },

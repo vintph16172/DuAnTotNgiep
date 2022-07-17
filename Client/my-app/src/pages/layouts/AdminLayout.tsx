@@ -1,13 +1,15 @@
 import { Breadcrumb, Layout, Menu, Avatar, Badge, Dropdown, Space } from 'antd'
 import SubMenu from 'antd/lib/menu/SubMenu'
-import React, { useState } from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
-import { UserOutlined, CommentOutlined, DollarOutlined, LaptopOutlined, FolderFilled, BellOutlined,ReadOutlined} from '@ant-design/icons';
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import { UserOutlined, CommentOutlined, DollarOutlined, LaptopOutlined, FolderFilled, BellOutlined, ReadOutlined } from '@ant-design/icons';
 
 
 const AdminLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
     const { Header, Content, Footer, Sider } = Layout;
+    let location = useLocation();
+    const [current, setCurrent] = useState(location.pathname)
 
     const notification = (
         <Menu
@@ -65,7 +67,17 @@ const AdminLayout = () => {
         />
     );
 
+    function handleClick(e: any) {
+        setCurrent(e.key);
+    }
 
+    useEffect(() => {
+        if (location) {
+            if (current !== location.pathname) {
+                setCurrent(location.pathname);
+            }
+        }
+    }, [location, current])
 
 
     return (
@@ -77,14 +89,19 @@ const AdminLayout = () => {
 
 
 
-                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    onClick={handleClick}
+                    selectedKeys={[current]}
+                >
                     <SubMenu key="sub1" icon={<FolderFilled />} title="Category">
-                        <Menu.Item key="1"><NavLink to='/admin/category'>List Category</NavLink></Menu.Item>
-                        <Menu.Item key="2"><NavLink to='/admin/category/add'>Add Category</NavLink></Menu.Item>
+                        <Menu.Item key="/admin/category"><NavLink to='/admin/category'>List Category</NavLink></Menu.Item>
+                        <Menu.Item key="/admin/category/add"><NavLink to='/admin/category/add'>Add Category</NavLink></Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" icon={<ReadOutlined />} title="Quiz">
-                        <Menu.Item key="3"><NavLink to='/admin/quiz'>List Quiz</NavLink></Menu.Item>
-                        <Menu.Item key="4"><NavLink to='/admin/quiz/add'>Add Quiz</NavLink></Menu.Item>
+                        <Menu.Item key="/admin/quiz"><NavLink to='/admin/quiz'>List Quiz</NavLink></Menu.Item>
+                        <Menu.Item key="/admin/quiz/add"><NavLink to='/admin/quiz/add'>Add Quiz</NavLink></Menu.Item>
                     </SubMenu>
 
                 </Menu>
@@ -112,7 +129,7 @@ const AdminLayout = () => {
                     </div>
 
                 </Header>
-                
+
                 <Content
                     className="site-layout-background"
                     style={{
