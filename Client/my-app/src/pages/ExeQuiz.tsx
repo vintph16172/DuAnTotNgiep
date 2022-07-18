@@ -4,6 +4,7 @@ import { useSpeechSynthesis } from 'react-speech-kit';
 
 
 const ExeQuiz = () => {
+
     const [value, setValue] = useState(['Dog', "You"]);
     const [select, setSelect] = useState<number>()
     const [select2, setSelect2] = useState<number>()
@@ -77,6 +78,7 @@ const ExeQuiz = () => {
                         </div>
                     </div>
                 </section>
+
                 <section className="w-8/12 mx-auto">
                     <div className="md:mt-[10px]">
                         <h1 className="font-bold text-[20px]">Nghe và chọn đáp án đúng</h1>
@@ -92,6 +94,7 @@ const ExeQuiz = () => {
                         </div>
                     </div>
                 </section>
+
                 <section className="md:w-5/12 w-9/12 mx-auto md:py-[10px] ">
                     <div className="items-center">
                         {questions?.map((item, index) => {

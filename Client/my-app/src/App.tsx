@@ -39,6 +39,8 @@ import List from './features/Admin/categories/List';
 import ListUser from './features/Admin/Auth/listUser';
 import AddUser from './features/Admin/Auth/AddUser';
 // import Edit from './Admin/categories/Edit';
+import Store from './pages/Store';
+
 function App() {
   return (
     <div >
@@ -54,6 +56,7 @@ function App() {
           <Route path="contact" element={<Contact />}/>
           <Route path="fileuser" element={<FileUser />}/>
           <Route path="user" element={<User />}/>
+          <Route path='store' element={<Store />} />
         </Route>
 
 

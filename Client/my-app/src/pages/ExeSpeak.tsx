@@ -67,7 +67,7 @@ const ExeSpeak = () => {
     const finishBtn = useRef<HTMLButtonElement>(null);
     const playBtn = useRef<HTMLButtonElement>(null);
     const downLoad = useRef<HTMLAnchorElement>(null);
-
+    
 
     let startTime;
     let stoptime;

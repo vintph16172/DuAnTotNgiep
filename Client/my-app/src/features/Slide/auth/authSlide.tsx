@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { addUser, editUser, getListUser, login, removeUser } from "../../../api/user";
+import { addUser, editUser, getListUser, login, register, removeUser } from "../../../api/user";
 import { UserType } from "../../../types";
 
 
@@ -45,13 +45,35 @@ export const signIn:any = createAsyncThunk(
     }
 )
 
+export const signUp:any = createAsyncThunk(
+    "user/register",
+    async (user:any, { rejectWithValue } ) => {
+        try {
+            const {data} = await register(user);
+            return data
+        } catch (error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
+
+
 
 const authSlide = createSlice({
     name:"user",
+   
     initialState:{
-        value:[]
+        value:[],
+        isAuthticated: false
     },
-    reducers:{},
+    reducers:{
+
+        logout(){
+            // state.value =[];
+            localStorage.removeItem("user");
+        }
+    },
     extraReducers: (builer) => {
         builer.addCase(getUserList.fulfilled, (state, action) => {
             state.value = action.payload;
@@ -62,6 +84,7 @@ const authSlide = createSlice({
         builer.addCase(addUserSlide.fulfilled, (state:any, action) => {
             state.value.push(action.payload)
         })
+
         builer.addCase(editUserSlide.fulfilled, (state:any, action) => {
             console.log(state.value);
             state.value = state.value.map((item: { _id: any; }) => item._id === action.payload._id ? action.payload : item)
@@ -72,8 +95,16 @@ const authSlide = createSlice({
             state.value = state.value.filter((arrow:any) => arrow._id !== action.payload._id);   
         })
 
+        builer.addCase(signUp.fulfilled,  (state:any, action:any) => {
+            state.value = action.payload 
+        })
+
+        builer.addCase(signIn.fulfilled,  (state:any, action:any) => {
+            state.isAuthticated = true;
+        })
+
         
     }
 })
-
+export const { logout } = authSlide.actions
 export default authSlide.reducer;
