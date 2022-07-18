@@ -32,10 +32,19 @@ export const editCategory = async (req, res) => {
 
 export const removeCategory = async (req, res) => {
     try {
-        const category = await categories.findOneAndDelete({id:req.params.id});
+        const category = await categories.findOneAndDelete({_id:req.params.id}).exec();
         res.json(category)
     } catch (error) {
         res.status(400).json({message:"Xóa thất bại"})
     }
 }
+export const getCategoryById = async (req, res) => {
+    try {
+        const category = await categories.findOne({_id:req.params.id}).exec();
+        res.json(category)  
+    } catch (error) {
+        res.status(400).json({message:"Xóa thất bại"})
+    }
+}
+
 

@@ -1,10 +1,17 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import countSlide from '../features/count/CountSlide'
-import productSlide from '../features/product/ProductSlide'
+import authSlide from '../features/Slide/auth/authSlide';
+import CategorySlide from '../features/Slide/category/CategorySlide';
+import CountSlide from '../features/Slide/count/CountSlide';
+import ProductSlide from '../features/Slide/product/ProductSlide';
+// import categorySlide from '../features/category/CategorySlide';
+// import countSlide from '../features/count/CountSlide'
+// import productSlide from '../features/product/ProductSlide'
 export const store = configureStore({
   reducer:{
-    count: countSlide,
-    product: productSlide
+    count: CountSlide,
+    product: ProductSlide,
+    category: CategorySlide,
+    user: authSlide
     // product
     // cart
     // user
