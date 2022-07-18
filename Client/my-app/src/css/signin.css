@@ -19,10 +19,12 @@ input::placeholder{
 }
 
 
-.signin__form button{
+.signin__form .button{
     background-color: #512E5F;
     border-radius: 5px;
-    width: 150px;
+    color: #fff;
+    padding: 10px 30px;
+    width: 200px;
 }
 
 .signin__main__left i {
