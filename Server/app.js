@@ -6,9 +6,6 @@ import homeRouter from './routes/home';
 import { checkAuth } from './midlerware/checkAuth';
 import routeAuth from './routes/auth';
 
-
-import routeAuth from './routes/auth';
-
 import routeCategory from './routes/category';
 
 import routerSpeak from './routes/speak';
