@@ -27,6 +27,7 @@ import ExeQuiz from './pages/ExeQuiz';
 import ExeSpeak from './pages/ExeSpeak';
 import ExeWriteAndListen from './pages/ExeWriteAndListen';
 import Login from './Component/user/Login';
+import Store from './pages/Store';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="contact" element={<Contact />}/>
           <Route path="fileuser" element={<FileUser />}/>
           <Route path="user" element={<User />}/>
+          <Route path='store' element={<Store />} />
         </Route>
 
 
