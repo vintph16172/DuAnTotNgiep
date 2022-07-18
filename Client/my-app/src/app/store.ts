@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import AnswerQuizSlide from '../features/Slide/answerQuiz/AnswerQuizSlide';
 import authSlide from '../features/Slide/auth/authSlide';
 import CategorySlide from '../features/Slide/category/CategorySlide';
 import CountSlide from '../features/Slide/count/CountSlide';
@@ -14,6 +15,9 @@ export const store = configureStore({
     product: ProductSlide,
     category: CategorySlide,
     quiz: QuizSlide,
+
+
+    answerQuiz: AnswerQuizSlide,
     user: authSlide
     // product
     // cart

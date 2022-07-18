@@ -61,9 +61,10 @@ const FormQuiz = (props: Props) => {
     if (id) {
       const getQuiz = async () => {
         const { data } = await detailQuiz(id)
-        console.log(data);
+        console.log("data edit",data);
         setQuiz(data)
-        form.setFieldsValue(data);
+        reset(data)
+        form.setFieldsValue(data.quiz);
 
       }
       getQuiz()
