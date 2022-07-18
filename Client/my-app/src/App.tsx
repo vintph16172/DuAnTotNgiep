@@ -29,6 +29,7 @@ import ExeQuiz from './pages/ExeQuiz';
 import ExeSpeak from './pages/ExeSpeak';
 import ExeWriteAndListen from './pages/ExeWriteAndListen';
 import Login from './Component/user/Login';
+<<<<<<< HEAD
 // import Add from './Admin/categories/Add';
 import toastr from "toastr";
 import Add from './features/Admin/categories/Add';
@@ -37,6 +38,10 @@ import List from './features/Admin/categories/List';
 import ListUser from './features/Admin/Auth/listUser';
 import AddUser from './features/Admin/Auth/AddUser';
 // import Edit from './Admin/categories/Edit';
+=======
+import Store from './pages/Store';
+
+>>>>>>> 863c021368a0c4889f4f6360064813b782c2735e
 function App() {
   return (
     <div >
@@ -52,6 +57,7 @@ function App() {
           <Route path="contact" element={<Contact />}/>
           <Route path="fileuser" element={<FileUser />}/>
           <Route path="user" element={<User />}/>
+          <Route path='store' element={<Store />} />
         </Route>
 
 
