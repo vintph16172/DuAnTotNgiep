@@ -10,7 +10,9 @@ import HeaderComponent from '../Component/HeaderHome'
 const Home = () => {
     const navigate = useNavigate();
     const startLearning = () => {
-           const existUser = localStorage.getItem("user") ? JSON.parse(String(localStorage.getItem("user"))).user : ""; 
+           const existUser = localStorage.getItem("user") ? localStorage.getItem("user") : ""; 
+        //    console.log(localStorage.getItem("user"));
+           
         if (!existUser) {
             navigate('/login')
         }else{
