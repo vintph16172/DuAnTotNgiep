@@ -8,6 +8,8 @@ import  './css/detailLearning.css';
 import  './css/signin.css'; 
 import  './css/signup.css'; 
 import './css/quiz.css';
+import './css/speaking.css';
+import './css/listen.css';
 import "toastr/build/toastr.min.css";
 
 // import './App.css';
