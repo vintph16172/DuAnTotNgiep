@@ -90,7 +90,7 @@ const Learning = () => {
                             </div>
                         </div>
                         <div className="btn__display_item">
-                            <button>Xem thêm bài học</button>
+                        <button className='btn__see__more'> Xem thêm bài học</button>
                         </div>
                     </div>
                 </section>

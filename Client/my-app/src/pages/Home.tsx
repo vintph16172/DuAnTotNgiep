@@ -27,12 +27,12 @@ const Home = () => {
                 {/* end header */}
                 <section className="banner">
                     <div className="image">
-                        <a ><img src="../image/image 1.png"  /></a>
+                        <a ><img src="../image/image 1.png" className='home__img__banner'  /></a>
                     </div>
                     <div className="start">
                         <p className="start-title">Cách học ngôn ngữ miễn phí, vui nhộn và hiệu quả</p>
-                       <button onClick={() => startLearning()} className="btn-start-1">Bắt đầu học</button>
-                        <button className="btn-start-2">Tôi đã có tài khoản</button>
+                        <button onClick={() => startLearning()} className="btn-start-1 btn__start__learning">Bắt đầu học</button>
+                        <button className="btn-start-2 btn__join__learning">Tôi đã có tài khoản</button>
                     </div>
                 </section>
                 {/* end banner  */}

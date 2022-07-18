@@ -6,6 +6,9 @@ import homeRouter from './routes/home';
 import { checkAuth } from './midlerware/checkAuth';
 import routeAuth from './routes/auth';
 
+
+import routeAuth from './routes/auth';
+
 import routeCategory from './routes/category';
 
 import routerSpeak from './routes/speak';
@@ -38,6 +41,7 @@ app.use("/api",checkAuth, routeAuth);
 app.use("/", homeRouter )
 app.use("/api",checkAuth, routeCategory);
 app.use("/api", routerSpeak )
+
 
 app.use("/api", routerSpeak )
 mongoose

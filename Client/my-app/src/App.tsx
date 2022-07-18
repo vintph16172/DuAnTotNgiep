@@ -7,6 +7,7 @@ import  './css/learning.css';
 import  './css/detailLearning.css'; 
 import  './css/signin.css'; 
 import  './css/signup.css'; 
+import './css/quiz.css';
 import "toastr/build/toastr.min.css";
 
 // import './App.css';
