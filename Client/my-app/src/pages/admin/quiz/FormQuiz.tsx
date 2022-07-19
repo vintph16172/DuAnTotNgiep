@@ -106,14 +106,8 @@ const FormQuiz = (props: Props) => {
         const { data } = await detailQuiz(id)
         console.log("data edit",data);
         setQuiz(data)
-<<<<<<< HEAD
-        form.setFieldsValue(data);
-        dispatch(changeBreadcrumb("Sửa Quiz"))
-=======
-        reset(data)
         form.setFieldsValue(data.quiz);
-
->>>>>>> DTN-15-api-quiz-speak
+        dispatch(changeBreadcrumb("Sửa Quiz"))
       }
       getQuiz()
     } else {
