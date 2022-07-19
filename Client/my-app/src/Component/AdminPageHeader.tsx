@@ -3,7 +3,11 @@ import { Breadcrumb,PageHeader } from 'antd'
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux'
 
-const AdminPageHeader = () => {
+type AdminPageHeaderProps = {
+    breadcrumb: string
+}
+
+const AdminPageHeader = ({breadcrumb}: AdminPageHeaderProps ) => {
     // const breadcrumb = useSelector(data => data.products.breadcrumb)
     // console.log("breadcrumb",breadcrumb);
 
@@ -25,8 +29,8 @@ const AdminPageHeader = () => {
           </div>
           <PageHeader
               className="site-page-header"
-              title={"breadcrumb"}
-
+              title={breadcrumb}
+            style={{paddingLeft: 0}}
           />
           
 

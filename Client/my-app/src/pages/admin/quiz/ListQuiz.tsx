@@ -4,7 +4,7 @@ import type { Key, TableRowSelection } from 'antd/es/table/interface';
 import AdminPageHeader from '../../../Component/AdminPageHeader';
 import { Link } from 'react-router-dom';
 import { QuizType } from '../../../types/quiz';
-import { getListQuizSlide, removeQuizSlide } from '../../../features/Slide/quiz/QuizSlide';
+import { changeBreadcrumb, getListQuizSlide, removeQuizSlide } from '../../../features/Slide/quiz/QuizSlide';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { getCategoryList } from '../../../features/Slide/category/CategorySlide';
 import { CategoryType } from '../../../types/category';
@@ -35,7 +35,7 @@ type Props = {}
 
 const ListQuiz = (props: Props) => {
 
-
+  const breadcrumb = useAppSelector(item => item.quiz.breadcrumb)
   const quizs = useAppSelector(item => item.quiz.value)
   const categories = useAppSelector(item => item.category.value)
   const dispatch = useAppDispatch();
@@ -302,13 +302,15 @@ const ListQuiz = (props: Props) => {
 
 
   useEffect(() => {
+    dispatch(changeBreadcrumb("Quản Lý Quiz") )
     dispatch(getListQuizSlide())
     dispatch(getCategoryList())
+
   }, [])
 
   return (
     <div>
-      <AdminPageHeader />
+      <AdminPageHeader breadcrumb={breadcrumb} />
       <Button type="primary" className="my-6" >
         <Link to={`/admin/quiz/add`}>Thêm Quiz</Link>
 

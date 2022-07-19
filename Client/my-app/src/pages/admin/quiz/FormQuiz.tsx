@@ -14,12 +14,55 @@ import { detailQuiz } from '../../../api/quiz';
 import { QuizType } from '../../../types/quiz';
 
 
+import type { UploadProps } from 'antd';
+
+const props: UploadProps = {
+  action: 'https://api.cloudinary.com/v1_1/vintph16172/image/upload',
+  listType: 'picture',
+  previewFile(file) {
+    const CLOUDINARY_PRESET = "ypn4yccr";
+    const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/vintph16172/image/upload"
+    console.log('Your upload file:', file);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_PRESET);
+    return fetch('https://api.cloudinary.com/v1_1/vintph16172/image/upload', {
+      method: 'POST',
+      body: file,
+    })
+      .then(res => res.json())
+      .then(({ thumbnail }) => thumbnail);
+
+    // const CLOUDINARY_PRESET = "ypn4yccr";
+    // const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/vintph16172/image/upload"
+
+    // let imgLink = "";
+
+    // // const file = imgPost?.files[0];
+    // console.log(file);
+
+    // if (file) {
+    //   const formData = new FormData();
+    //   formData.append("file", file);
+    //   formData.append("upload_preset", CLOUDINARY_PRESET);
+    //   // call api để upload ảnh lên
+    //   const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
+    //     headers: {
+    //       "Content-Type": "application/form-data",
+    //     },
+    //   });
+    //   imgLink = data.url
+
+  },
+};
+
 type Props = {}
 
 const FormQuiz = (props: Props) => {
   const { Option } = Select;
   const [form] = Form.useForm();
   const { register, handleSubmit, formState: { errors }, reset, control } = useForm()
+  const breadcrumb = useAppSelector(data => data.quiz.breadcrumb)
   const categories = useAppSelector(data => data.category.value)
   const [quiz, setQuiz] = useState<QuizType>()
   const dispatch = useAppDispatch();
@@ -64,13 +107,14 @@ const FormQuiz = (props: Props) => {
         console.log(data);
         setQuiz(data)
         form.setFieldsValue(data);
-
+        dispatch(changeBreadcrumb("Sửa Quiz"))
       }
       getQuiz()
+    } else {
+      dispatch(changeBreadcrumb("Thêm Quiz"))
     }
 
     dispatch(getCategoryList())
-    dispatch(changeBreadcrumb("Thêm Quiz"))
 
   }, [])
 
@@ -79,7 +123,7 @@ const FormQuiz = (props: Props) => {
 
   return (
     <div className="container">
-      <AdminPageHeader />
+      <AdminPageHeader breadcrumb={breadcrumb} />
       <div className="pb-6 mx-6">
         <Form layout="vertical" form={form} onFinish={onFinish} onFinishFailed={onFinishFailed}>
           {id ? <Form.Item label="_id" name="_id" hidden={true}>
@@ -134,8 +178,13 @@ const FormQuiz = (props: Props) => {
             name="image"
             rules={[{ required: true, message: 'Không để Trống!' }]}
           >
-            <Input />
+            {/* <Input /> */}
+            <Upload {...props}>
+              <Button icon={<UploadOutlined />}>Upload</Button>
+            </Upload>
           </Form.Item>
+
+
 
           <Form.Item
             label="Thời Gian Làm"
@@ -151,7 +200,7 @@ const FormQuiz = (props: Props) => {
             <Button className='inline-block mr-2' type="primary" htmlType="submit" >
               {id ? "Sửa" : "Thêm"}
             </Button>
-            <Button className='inline-block ' type="primary" danger  onClick={() => { onReset() }}>
+            <Button className='inline-block ' type="primary" danger onClick={() => { onReset() }}>
               Reset
             </Button>
           </Form.Item>
