@@ -14,6 +14,8 @@ import type { InputRef } from 'antd';
 import type { FilterConfirmProps } from 'antd/es/table/interface';
 import type { ColumnsType, ColumnType } from 'antd/es/table';
 import moment from 'moment'
+import { getListAnswerQuizSlide } from '../../../features/Slide/answerQuiz/AnswerQuizSlide';
+import { AnswerQuizType } from '../../../types/answerQuiz';
 
 interface DataType {
   key: React.Key;
@@ -37,10 +39,12 @@ const ListQuiz = (props: Props) => {
 
   const breadcrumb = useAppSelector(item => item.quiz.breadcrumb)
   const quizs = useAppSelector(item => item.quiz.value)
+  const answerQuizs = useAppSelector(item => item.answerQuiz.value)
   const categories = useAppSelector(item => item.category.value)
   const dispatch = useAppDispatch();
-  console.log(quizs);
-  console.log(categories);
+  console.log('quizs',quizs);
+  console.log('answerQuizs',answerQuizs);
+  console.log('categories',categories);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [selected, setSelected] = useState<{ key: number, id: string | undefined }[]>([]);
@@ -51,8 +55,8 @@ const ListQuiz = (props: Props) => {
   //------------------STATE--------------------
 
   const time = moment("2022-07-17T08:05:56.453+00:00").format("h:mm:ss a, MMM Do YYYY")
-  console.log("time",time);
-  
+  console.log("time", time);
+
 
   const dataTable = quizs.map((item: QuizType, index) => {
     return {
@@ -196,11 +200,11 @@ const ListQuiz = (props: Props) => {
     setConfirmLoading(true);
     console.log(id);
     message.loading({ content: 'Loading...', key });
-    
+
     setTimeout(() => {
-      if(Array.isArray(id)){
+      if (Array.isArray(id)) {
         dispatch(removeQuizSlide(id))
-      }else{
+      } else {
         dispatch(removeQuizSlide(id))
       }
       setConfirmLoading(false);
@@ -257,14 +261,15 @@ const ListQuiz = (props: Props) => {
       title: 'Ngày Tạo',
       dataIndex: 'createdAt',
       key: "createdAt",
-      
+
     },
     {
       title: 'Ngày Update',
       dataIndex: 'updatedAt',
       key: "updatedAt",
-     
+
     },
+    Table.EXPAND_COLUMN,
     {
       title: "Hành Động", key: "action", render: (text, record) => (
         <Space align="center" size="middle">
@@ -304,6 +309,7 @@ const ListQuiz = (props: Props) => {
   useEffect(() => {
     dispatch(changeBreadcrumb("Quản Lý Quiz") )
     dispatch(getListQuizSlide())
+    dispatch(getListAnswerQuizSlide())
     dispatch(getCategoryList())
 
   }, [])
@@ -316,7 +322,7 @@ const ListQuiz = (props: Props) => {
 
       </Button>
 
-      {selectedRowKeys.length > 0
+      {selectedRowKeys.length > 1
         ? <Popconfirm
           title="Bạn Có Muốn Xóa Hết?"
           okText="Có"
@@ -340,6 +346,16 @@ const ListQuiz = (props: Props) => {
       <Table
         bordered
         footer={() => `Hiển thị 10 trên tổng ${quizs.length}`}
+        expandable={{
+          expandedRowRender: record => <div>
+            {answerQuizs.map((item: AnswerQuizType ) => item.quiz === record._id 
+            ? <p style={{ margin: 0 }}>{item.answer}</p> 
+            :"")}
+
+            {/* <p style={{ margin: 0 }}>{record.question}</p> */}
+          </div>  ,
+          // rowExpandable: record => record.question !== 'Not Expandable',
+        }}
         rowSelection={rowSelection}
         columns={columns}
         dataSource={dataTable} />

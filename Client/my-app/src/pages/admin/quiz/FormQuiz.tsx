@@ -104,10 +104,16 @@ const FormQuiz = (props: Props) => {
     if (id) {
       const getQuiz = async () => {
         const { data } = await detailQuiz(id)
-        console.log(data);
+        console.log("data edit",data);
         setQuiz(data)
+<<<<<<< HEAD
         form.setFieldsValue(data);
         dispatch(changeBreadcrumb("Sửa Quiz"))
+=======
+        reset(data)
+        form.setFieldsValue(data.quiz);
+
+>>>>>>> DTN-15-api-quiz-speak
       }
       getQuiz()
     } else {
