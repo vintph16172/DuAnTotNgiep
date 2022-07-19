@@ -7,6 +7,7 @@ export type CategoryType = {
 }
 
 export type UserType = {
+    confirmPassword(confirmPassword: any)
     _id?: number,
     username?: String,
     email: String,

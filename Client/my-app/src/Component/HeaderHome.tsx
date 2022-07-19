@@ -1,7 +1,19 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { logout } from '../features/Slide/auth/authSlide';
+import { message, Modal } from "antd";
 const HeaderComponent = () => {
+
+  const onLogout = () => {
+      const confirm = window.confirm("Bạn muốn đăng xuất ?")
+      if (confirm) {
+
+        localStorage.removeItem("user");
+        // dispath(increase())
+        message.success("Đăng xuất thành công !")
+      }
+  }
   return (
     <header className="header">
       <div className="logo">
@@ -19,6 +31,9 @@ const HeaderComponent = () => {
                         <div class="user">
                             <a href="" class="fa fa-user text-2xl my-auto" aria-hidden="true"></a>
                         </div> */}
+                        <div>
+                          <button onClick={() => onLogout()}>Logout</button>
+                        </div>
     </header>
   )
 }

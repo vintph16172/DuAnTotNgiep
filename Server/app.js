@@ -4,9 +4,8 @@ import cors from 'cors'
 import morgan from 'morgan'
 import homeRouter from './routes/home';
 import { checkAuth } from './midlerware/checkAuth';
-
-
 import routeAuth from './routes/auth';
+
 import routeCategory from './routes/category';
 
 import routerSpeak from './routes/speak';
@@ -25,6 +24,7 @@ import routerUserListenWrite from './routes/userListenWrite';
 //-----------------USER-ANSWER------------------------ 
 
 
+
 const app = express();
 const path = require("path");
 
@@ -37,7 +37,6 @@ require('dotenv').config()
 app.use("/api",checkAuth, routeAuth);
 app.use("/", homeRouter )
 app.use("/api",checkAuth, routeCategory);
-
 app.use("/api", routerSpeak )
 app.use("/api", routerQuiz)
 app.use("/api", routerListenWrite)
@@ -46,9 +45,11 @@ app.use("/api", routerAnswerSpeak)
 app.use("/api", routerAnswerQuiz)
 app.use("/api", routerAnswerListenWrite)
 
+
 app.use("/api", routerUserSpeak)
 app.use("/api", routerUserQuiz)
 app.use("/api", routerUserListenWrite)
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected"))

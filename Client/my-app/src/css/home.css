@@ -89,12 +89,16 @@
 
 /* end vougue */
 
+.box__info__home{
+    background-color: #EAF2F8;
+}
+
 .reason {
     @apply my-[100px] w-10/12 m-auto
 }
 
 .reason .title{
-    @apply text-[24px] text-center font-bold mb-[95px] md:text-[32px]
+    @apply text-[24px] pt-[20px] text-center font-bold mb-[95px] md:text-[32px]
 }
 
 .reason .content{
@@ -137,3 +141,168 @@
 }
 
 /* end study */
+
+
+/* .box__main__course {
+    @apply bg-[#EAF2F8]
+} */
+
+
+.distance__course{
+    @apply w-10/12 m-auto pt-[50px] pb-[50px] grid grid-cols-4 gap-4 text-center
+}
+.box__course{
+   border: 2px solid red;
+    padding: 70px 20px 20px 20px;
+   border-radius: 5px;
+   position: relative;
+}
+.title__course__sale{
+    @apply 	 text-base	font-bold	text-red-500	
+}
+.title__course{
+    @apply 	 text-base	font-bold	text-[#000]	
+}
+
+.price__course{
+    @apply  text-xl	pb-2 font-semibold border-b-[1px]	border-slate-400	
+
+
+}
+.price__course__old{
+    @apply  text-lg	text-[#808B96] line-through mb-0
+
+}
+
+.nav__info__course i{
+    @apply mr-2 text-base
+}
+.nav__info__course li{
+    @apply py-2 text-slate-900	text-sm 
+
+}
+
+.btn__buy__course{
+    width: 200px;
+    height: 42px;
+    color: #000;
+    border-radius: 4px;
+    background-color: #C0392B;
+    color: #fff;
+      
+}
+
+.btn__buy__course{
+   @apply shadow-md font-sans   text-lg	
+
+    
+}
+
+.price__sale-off__course{
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 50px;
+    height: 52px;
+    text-align: center;
+    background-color: #C0392B;
+    color: #fff;
+}
+.price__sale-off__course::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    border-width: 0 25px 20px;
+    border-style: solid;
+    border-color: transparent #C0392B  transparent #C0392B;
+}
+
+.item__sale__year{
+    border-color: #28a745;
+}
+.price__sale__year{
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 50px;
+    height: 52px;
+    text-align: center;
+    background-color: #28a745;
+    color: #fff;
+}
+.price__sale__year::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    border-width: 0 25px 20px;
+    border-style: solid;
+    border-color: transparent #28a745  transparent #28a745;
+}
+
+
+/* form  */
+
+.form__information{
+    @apply w-8/12 m-auto shadow-lg mb-[100px]
+
+
+}
+.form__information{
+  border: 1px solid #ccc;
+  padding: 50px;
+}
+.title__form{
+    @apply  text-center text-2xl	font-sans font-medium	
+
+}
+.box__form{
+    
+}
+
+.list__form{
+    @apply grid grid-cols-2 gap-[50px] mt-[50px]
+}
+
+.item__box__form input{
+    display: flex;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 5px 20px;
+    margin-top: 10px;
+    outline: none;
+}
+.item__box__form i{
+   color: #3498DB;
+   margin-right: 8px;
+   font-size: 18px;
+}
+.item__box__form label{
+  
+}
+.list__check__box{
+   display: flex;
+   margin-top: 25px;
+}
+.item__Check__box input{
+    display: flex;
+    margin-top: 5px;
+    height: 20px;
+    width: 20px;
+}
+.item__Check__box label{
+   margin-right: 30px;
+}
+
+.box__btn__form{
+    @apply mt-[50px] text-center
+}
+.box__btn__form button{
+    width: 200px;
+    height: 42px;
+    color: #000;
+    border-radius: 4px;
+    background-color: #C0392B;
+    color: #fff; 
+}

@@ -42,7 +42,7 @@ const ExeSpeak = () => {
     // const str = transcript
     // capitalizeFirstLowercaseRest(value)
     console.log(value);
-    
+
     // console.log(capitalizeFirstLowercaseRest(value));
 
 
@@ -67,7 +67,7 @@ const ExeSpeak = () => {
     const finishBtn = useRef<HTMLButtonElement>(null);
     const playBtn = useRef<HTMLButtonElement>(null);
     const downLoad = useRef<HTMLAnchorElement>(null);
-
+    
 
     let startTime;
     let stoptime;
@@ -157,13 +157,17 @@ const ExeSpeak = () => {
         <div>
             <div>
                 <section className="w-10/12 mx-auto">
-                    <div className="mt-[20px]">
-                        <a ><img className="w-[50px]" src="../image/image 27.png" /></a>
+                    <div className="mt-[10px]">
+                        <div>
+                            <a className='return__learning'>
+                                <i className="fa-solid fa-xmark"></i>
+                            </a>
+                        </div>
                     </div>
                 </section>
-                <section className="w-10/12 mx-auto py-[50px]">
+                <section className="w-6/12 mx-auto py-[50px]">
                     <div className="grid md:grid-cols-3 justify-items-center">
-                        <div className="w-[300px]"> 
+                        <div className="w-[300px]">
                             <img src="../image/image 24.png" />
                         </div>
                         <div className="col-span-2">
@@ -202,9 +206,9 @@ const ExeSpeak = () => {
                                 </div> */}
                             </div>
                             <div>
-                            
-                                <button className="px-[30px] py-[15px] font-bold shadow-lg border-2 border-[#CCCCCC] rounded-xl" onClick={() => { 
-                                    setCheck(true) 
+
+                                <button className=" border-2 border-[#CCCCCC] px-[30px] py-[5px] font-bold text-lg rounded-md float-right cursor-pointer transition duration-700" onClick={() => {
+                                    setCheck(true)
                                     transcript === value.toUpperCase() ? audioCorrect.play() : audioWrong.play()
                                 }}>
                                     Kiểm tra
@@ -213,21 +217,20 @@ const ExeSpeak = () => {
                         </div>
                     </div>
                     {check === true && transcript === value.toUpperCase() ?
-                        <div className="md:w-6/12 w-10/12 py-[10px] mx-auto md:float-right">
-                            <div className="bg-[#76D7C4] px-[15px] md:py-[10px] rounded-md">
-                                <p className="text-white font-bold">Đúng rồi !</p>
-                                <p className="text-white md:py-[10px] font-bold">Dịch nghĩa: <span>Mua</span></p>
-                                <button className="text-white w-full py-[10px] rounded-md bg-[#138D75] mb-[20px] font-bold">Tiếp tục</button>
+                        <div className=" box__result__speak">
+                            <div className="bg-[#D6EAF8] px-[15px] md:py-[10px] rounded-md">
+                                <p className="text-[#2E86C1] font-bold">Đúng rồi !</p>
+                                <p className="text-[#2E86C1] md:py-[10px] font-bold">Dịch nghĩa: <span>Mua</span></p>
+                                <button className="text-white w-full py-[10px] rounded-md bg-[#5DADE2] mb-[20px] font-bold">Tiếp tục</button>
                             </div>
                         </div>
                         : ""}
 
                     {check === true && transcript !== value.toUpperCase() ?
-                        <div className="md:w-6/12 w-10/12 mx-auto py-[10px] md:float-right">
-                            <div className="bg-[#FFDFE0] px-[15px] md:py-[10px] rounded-md">
-
-                                <p className="font-bold">Gần đúng rồi !</p>
-                                <p className=" md:py-[10px] font-bold">Dịch nghĩa: <span>Mua</span></p>
+                        <div className=" box__result__speak">
+                            <div className="bg-[#F9EBEA] px-[15px] md:py-[10px] rounded-md">
+                                <p className="font-bold text-[#C0392B]">Gần đúng rồi !</p>
+                                <p className=" md:py-[5px] text-[#C0392B] font-bold">Dịch nghĩa: <span>Mua</span></p>
                                 <button className="text-white w-full py-[10px] rounded-md bg-[#C0392B] mb-[20px] font-bold">Tiếp tục</button>
                             </div>
                         </div>

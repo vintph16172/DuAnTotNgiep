@@ -1,8 +1,83 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { NavLink, useNavigate } from "react-router-dom";
+import { UserType } from "../../types";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from "react-redux";
+import { signUp } from "../../features/Slide/auth/authSlide";
+import { Modal } from "antd";
 
+// import yup from 'yup'
 type Props = {};
 
+const fromSchema = yup.object().shape({
+  username: yup.string()
+    .required("Username is required")
+    .min(6, "Username length should be at least 20 characters"),
+  email: yup.string()
+    .required("Email is required")
+    .email("It not Email"),
+  password: yup.string()
+    .required("Password is required")
+    .min(6, 'Password length should be at least 4 characters'),
+  confirmPassword: yup.string()
+    .required("Password is required")
+    .oneOf([yup.ref('password')], 'Passwords must and should match'),
+})
+const validation = { resolver: yupResolver(fromSchema) }
+
+
+type FormInputs = {
+  username: string,
+  email: string,
+  password: string | number,
+  confirmPassword?: string | number,
+}
+
+
 const SignUp = (props: Props) => {
+  const { register, handleSubmit, formState } = useForm<FormInputs>(validation);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { errors } = formState;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const onSubmit: SubmitHandler<FormInputs> = async (userForm: any) => {
+    console.log(userForm);
+    try {
+      const user = {
+        username: userForm.username,
+        email: userForm.email,
+        password: userForm.password
+      }
+      // console.log(user.confirmPassword)
+      const { payload } = await dispatch(signUp(user))
+      console.log(payload);
+      if (payload.message) {
+        Modal.error({
+          title: "Account is exist !",
+          onOk: () => {
+            // navigate("/login")
+          }
+        })
+      } else {
+        Modal.success({
+          title: "Register successfully",
+          onOk: () => {
+            navigate("/login")
+          }
+        })
+      }
+
+
+
+    } catch (error) {
+      alert("Username is exist")
+    }
+  }
+
+
   return (
 
     <div className="grid grid-cols-12 gap-8 m-auto">
@@ -13,7 +88,7 @@ const SignUp = (props: Props) => {
             To keep connected with us please login with your personal info
           </p>
           <div className="text-center">
-            <button className="p-2 text-white border-1 rounded">Sign in</button>
+            <NavLink to={"/login"} className="button px-4 border-1 rounded">Sign in</NavLink>
           </div>
         </div>
         <div className="signin__main__left  w-full ">
@@ -26,23 +101,34 @@ const SignUp = (props: Props) => {
               <i className="fa-solid fa-g" />
             </div>
             <p className="text-center">or user email acount</p>
-            <form >
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="m">
-                <input className="p-2 text-white" type="text" placeholder="Name" />
+                <input className="px-4 text-white" {...register('username')} type="text" placeholder="Name" />
+                <div className="text-red-500 float-left text-left px-4">{errors.username?.message}</div>
               </div>
               <div className="m">
-                <input className="p-2 text-white" type="email" placeholder="Email" />
+                <input className="px-4 text-white" {...register("email")} type="email" placeholder="Email" />
+                <div className="text-red-500 float-left text-left px-4">{errors.email?.message}</div>
               </div>
+
               <div>
-                <input className="p-2 text-white" type="password" placeholder="password" />
+                <input className="px-4 text-white" {...register("password")} type="password" placeholder="Password" />
+                <div className="text-red-500 float-left text-left px-4">{errors.password?.message}</div>
+              </div>
+
+              <div>
+                <input className="px-4 text-white" {...register("confirmPassword")} type="password" placeholder="Confirm password" />
+                <div className="text-red-500 float-left text-left px-4">{errors.confirmPassword?.message}</div>
               </div>
 
               <p className="my-6 text-center">
                 <a href="#">Forgot your password?</a>
               </p>
+
               <div className="text-center">
-                <button className="p-2 text-white border-1 rounded">Sign up</button>
+                <button className="button px-4 text-white border-1 rounded">Sign up</button>
               </div>
+
             </form>
           </div>
         </div>

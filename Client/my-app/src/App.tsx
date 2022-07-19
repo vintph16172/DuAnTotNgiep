@@ -9,6 +9,8 @@ import './css/detailLearning.css';
 import './css/signin.css';
 import './css/signup.css';
 import './css/quiz.css';
+import './css/speaking.css';
+import './css/listen.css';
 
 import "toastr/build/toastr.min.css";
 
@@ -46,6 +48,8 @@ import ListUser from './features/Admin/Auth/listUser';
 import AddUser from './features/Admin/Auth/AddUser';
 
 // import Edit from './Admin/categories/Edit';
+import Store from './pages/Store';
+
 function App() {
   return (
     <div >
@@ -53,14 +57,15 @@ function App() {
 
         <Route path='/' element={<WebsiteLayout />}>
           <Route index element={<Home />} />
-          <Route path='learning' element={<Learning />} />
-          <Route path='detailLearning' element={<DetailLearning />} />
-          <Route path='detailLearning/quiz' element={<ExeQuiz />} />
-          <Route path='detailLearning/speak' element={<ExeSpeak />} />
-          <Route path='detailLearning/writeAndListen' element={<ExeWriteAndListen />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="fileuser" element={<FileUser />} />
-          <Route path="user" element={<User />} />
+          <Route path='learning' element={<Learning/>} />
+          <Route path='detailLearning' element={<DetailLearning/>} />
+          <Route path='detailLearning/quiz' element={<ExeQuiz/>}/>
+          <Route path='detailLearning/speak' element={<ExeSpeak/>}/>
+          <Route path='detailLearning/writeAndListen' element={<ExeWriteAndListen/>}/>
+          <Route path="contact" element={<Contact />}/>
+          <Route path="fileuser" element={<FileUser />}/>
+          <Route path="user" element={<User />}/>
+          <Route path='store' element={<Store />} />
         </Route>
 
 
