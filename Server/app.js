@@ -21,6 +21,7 @@ import routerAnswerListenWrite from './routes/answerListenWrite';
 import routerUserSpeak from './routes/userSpeak';
 import routerUserQuiz from './routes/userQuiz';
 import routerUserListenWrite from './routes/userListenWrite';
+import routerHistory from './routes/history';
 //-----------------USER-ANSWER------------------------ 
 
 
@@ -49,6 +50,8 @@ app.use("/api", routerAnswerListenWrite)
 app.use("/api", routerUserSpeak)
 app.use("/api", routerUserQuiz)
 app.use("/api", routerUserListenWrite)
+
+app.use("/api", routerHistory)
 
 mongoose
   .connect(process.env.MONGO_URI)

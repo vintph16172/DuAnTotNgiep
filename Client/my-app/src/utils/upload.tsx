@@ -12,7 +12,7 @@ export const uploadImage = async (imgPost:any) => {
 
     let imgLink = "";
 
-       const file =  imgPost?.files[0];
+    const file =  imgPost?.files[0];
     console.log(file);
     
     if (file) {

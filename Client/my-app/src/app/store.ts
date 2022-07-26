@@ -3,8 +3,10 @@ import AnswerQuizSlide from '../features/Slide/answerQuiz/AnswerQuizSlide';
 import authSlide from '../features/Slide/auth/authSlide';
 import CategorySlide from '../features/Slide/category/CategorySlide';
 import CountSlide from '../features/Slide/count/CountSlide';
+import History from '../features/Slide/history/History';
 import ProductSlide from '../features/Slide/product/ProductSlide';
 import QuizSlide from '../features/Slide/quiz/QuizSlide';
+import UserQuiz from '../features/Slide/userQuiz/UserQuiz';
 
 // import categorySlide from '../features/category/CategorySlide';
 // import countSlide from '../features/count/CountSlide'
@@ -15,9 +17,9 @@ export const store = configureStore({
     product: ProductSlide,
     category: CategorySlide,
     quiz: QuizSlide,
-
-
     answerQuiz: AnswerQuizSlide,
+    userQuiz: UserQuiz,
+    history: History,
     user: authSlide
     // product
     // cart

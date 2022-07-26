@@ -49,6 +49,10 @@ import AddUser from './features/Admin/Auth/AddUser';
 
 // import Edit from './Admin/categories/Edit';
 import Store from './pages/Store';
+import ListAnswerQuiz from './pages/admin/answerQuiz/ListAnswerQuiz';
+import FormAnswerQuiz from './pages/admin/answerQuiz/FormAnswerQuiz';
+import ListUserQuiz from './pages/admin/userQuiz/ListUserQuiz';
+import FormUserQuiz from './pages/admin/userQuiz/FormUserQuiz';
 
 function App() {
   return (
@@ -90,6 +94,18 @@ function App() {
             <Route index element={<ListQuiz />} />
             <Route path='add' element={<FormQuiz />} />
             <Route path=':id/edit' element={<FormQuiz />} />
+          </Route>
+
+          <Route path="answerQuiz" >
+            <Route index element={<ListAnswerQuiz />} />
+            <Route path='add' element={<FormAnswerQuiz />} />
+            <Route path=':id/edit' element={<FormAnswerQuiz />} />
+          </Route>
+
+          <Route path="userQuiz" >
+            <Route index element={<ListUserQuiz />} />
+            <Route path='add' element={<FormUserQuiz />} />
+            <Route path=':id/edit' element={<FormUserQuiz />} />
           </Route>
 
 

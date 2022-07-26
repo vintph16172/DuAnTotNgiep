@@ -80,7 +80,7 @@ const quizSlice = createSlice({
           })
           builder.addCase(removeQuizSlide.fulfilled, (state: any, action: any) => {
                // state.value = state.value.filter(item => item._id !== action.payload._id)
-               console.log("action.payload._id", action.payload);
+               // console.log("action.payload._id", action.payload);
                if (Array.isArray(action.payload)) {
                     const payload = {
                          excludeIds: action.payload.map(item => {
